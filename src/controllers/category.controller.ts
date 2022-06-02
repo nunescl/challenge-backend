@@ -27,10 +27,8 @@ export class CategoryController {
     return res.status(HttpStatus.NO_CONTENT).json(category);
   }
   
-  async delete(req: Request, res: Response){
-    const { id } = req.params;
-    const category = await this.categoryService.delete(id);
-
+  async delete({params}: Request, res: Response){
+    const category = await this.categoryService.delete(params.id);
     return res.status(HttpStatus.NO_CONTENT).json(category);
   }
 }

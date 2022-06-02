@@ -31,12 +31,7 @@ export class CreateProductDto extends RequestDto {
         .not()
         .isEmpty({ ignore_whitespace: true }),
 
-      // body('image', 'Valor image não é uma string!').isString(),
-      // body('image', 'O campo image é obrigatório!')
-      //   .not()
-      //   .isEmpty({ ignore_whitespace: true }),
-
-      body('categoryId', 'Valor categoryId não é uma string!').isString(),
+      body('categoryId', 'Valor categoryId não é UUID!').isUUID(),
       body('categoryId', 'O campo categoryId é obrigatório!')
         .not()
         .isEmpty({ ignore_whitespace: true }),

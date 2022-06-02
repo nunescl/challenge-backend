@@ -30,26 +30,24 @@ export class ProductService {
     lacFree?:boolean,
     glutenFree?:boolean,
     veg?:boolean,
-    }): Promise<CreatedProductDto[]> 
-  {    
-    const filters = {name, categoryName, disponibility, lacFree, glutenFree, veg}
-      if(name)
-        {filters['name'] = ILike(`%${name}%`)}
-      if(categoryName)
-        {filters['categoryName'] = ILike(`%${categoryName}%`)}
-      if(disponibility)
-        {filters['disponibility'] = 
-          typeof disponibility === "string" && disponibility === "true" ? true : false}
-      if(lacFree)
-        {filters['lacFree'] = 
-          typeof lacFree === "string" && lacFree === "true" ? true : false}
-      if(glutenFree)
-        {filters['glutenFree'] = 
-          typeof glutenFree === "string" && glutenFree === "true" ? true : false}
-      if(veg)
-        {filters['veg'] = 
-          typeof veg === "string" && veg === "true" ? true : false}
-    
+    }): Promise<CreatedProductDto[]> {    
+      const filters = {name, categoryName, disponibility, lacFree, glutenFree, veg}
+        if(name)
+          {filters['name'] = ILike(`%${name}%`)}
+        if(categoryName)
+          {filters['categoryName'] = ILike(`%${categoryName}%`)}
+        if(disponibility)
+          {filters['disponibility'] = 
+            typeof disponibility === "string" && disponibility === "true" ? true : false}
+        if(lacFree)
+          {filters['lacFree'] = 
+            typeof lacFree === "string" && lacFree === "true" ? true : false}
+        if(glutenFree)
+          {filters['glutenFree'] = 
+            typeof glutenFree === "string" && glutenFree === "true" ? true : false}
+        if(veg)
+          {filters['veg'] = 
+            typeof veg === "string" && veg === "true" ? true : false}
     try {
       const products = await this.productRepository.find({relations: ["category"], where: filters});
       return products.map((product) => new CreatedProductDto(product));
@@ -75,8 +73,12 @@ export class ProductService {
 
   async update(id:string, params: UpdateProductDto): Promise<void> {
     try {
-      const product = await this.productRepository.findOne({where: {id}})
-      if(!product)  throw new HttpException('Produto não encontrado!', HttpStatus.NOT_FOUND,); 
+      const product = await this.productRepository.findOne({
+        where: {id}
+      })
+      if(!product) {
+        throw new HttpException('Produto não encontrado!', HttpStatus.NOT_FOUND,)
+      }; 
       await this.productRepository.update(id, {...product, ...params})
     } catch (error) {
       if(error instanceof HttpException) throw error;

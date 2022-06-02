@@ -15,8 +15,8 @@ export class CreatedProductDto extends CreateProductDto {
     english_description, 
     value,
     personCount,
-    disponibility,
     image,
+    disponibility,
     lacFree,
     glutenFree,
     veg, 
@@ -31,8 +31,8 @@ export class CreatedProductDto extends CreateProductDto {
     this.english_description = english_description;
     this.value = value;
     this.personCount = personCount;
-    this.disponibility = disponibility;
     this.image = image;
+    this.disponibility = disponibility;
     this.lacFree = lacFree;
     this.glutenFree = glutenFree;
     this.veg = veg;
