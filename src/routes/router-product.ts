@@ -28,8 +28,8 @@ router.get('/', (req: Request, res: Response, next: NextFunction)=>{
   });
 });
 
-router.get('/:name', (req: Request, res: Response, next: NextFunction)=>{
-  productController.getAll(req, res).catch((error:Error) => {
+router.get('/:id', (req: Request, res: Response, next: NextFunction)=>{
+  productController.show(req, res).catch((error:Error) => {
     next(error)
   });
 });

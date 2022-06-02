@@ -24,7 +24,7 @@ export class ProductController {
   }
   
   async show({params}: Request, res: Response){
-    const product = await this.productService.show(params.name);
+    const product = await this.productService.show(params.id);
     return res.status(HttpStatus.OK).json(product)
   }
 

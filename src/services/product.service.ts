@@ -59,7 +59,6 @@ export class ProductService {
   async show(id:string): Promise<CreatedProductDto> {
     try {
       const product = await this.productRepository.findOne({
-        relations: ["category"],
         where: { id },
       });
       if (!product){
