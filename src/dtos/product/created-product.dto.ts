@@ -12,7 +12,7 @@ export class CreatedProductDto extends CreateProductDto {
     id, 
     name, 
     description, 
-    english_description, 
+    englishDescription, 
     value,
     personCount,
     image,
@@ -28,7 +28,7 @@ export class CreatedProductDto extends CreateProductDto {
     this.id = id;
     this.name = name;
     this.description = description;
-    this.english_description = english_description;
+    this.englishDescription = englishDescription;
     this.value = value;
     this.personCount = personCount;
     this.image = image;

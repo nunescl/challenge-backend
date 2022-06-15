@@ -4,7 +4,7 @@ import { RequestDto } from '../request-dto/request.dto';
 export class CreateProductDto extends RequestDto {
   name!: string;
   description!: string;
-  english_description!: string;
+  englishDescription!: string;
   image!: string;
   value!: number;
   personCount!: number;
@@ -26,8 +26,8 @@ export class CreateProductDto extends RequestDto {
         .not()
         .isEmpty({ ignore_whitespace: true }),
 
-      body('english_description', 'Valor english_description não é uma string!').isString(),
-      body('english_description', 'O campo english_description é obrigatório!')
+      body('englishDescription', 'Valor englishDescription não é uma string!').isString(),
+      body('englishDescription', 'O campo englishDescription é obrigatório!')
         .not()
         .isEmpty({ ignore_whitespace: true }),
 

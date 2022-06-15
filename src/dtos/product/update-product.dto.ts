@@ -4,7 +4,7 @@ import { RequestDto } from '../request-dto/request.dto';
 export class UpdateProductDto extends RequestDto {
   name?: string;
   description?: string;
-  english_description?: string;
+  englishDescription?: string;
   image?: string;
   value?: number;
   personCount?: number;

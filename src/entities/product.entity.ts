@@ -13,7 +13,7 @@ export class ProductEntity {
   description!: string;
 
   @Column({ type: 'varchar', nullable: false })
-  english_description!: string;
+  englishDescription!: string;
 
   @Column({ type: 'float', nullable: false })
   value!: number;
