@@ -27,6 +27,7 @@ export class CategoryService {
       const savedCategory = await this.categoryRepository.save(createCategory);
       return new CreatedCategoryDto(savedCategory)
     } catch (error) {
+      console.log(error)
       throw new HttpException('Houve um erro ao adicionar categoria!', HttpStatus.BAD_REQUEST)
     }
   }
