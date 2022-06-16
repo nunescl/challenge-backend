@@ -1,13 +1,17 @@
 {
   "compilerOptions": {
-    "experimentalDecorators": true,
-    "target": "ESNext", 
-    "sourceMap": true, 
-    "module": "commonjs",
+    "skipLibCheck": true,
+    "target": "es6",
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
     "outDir": "./dist",
-    "rootDir": "./src",   
-    "esModuleInterop": true,   
-    "strict": true,
-    "skipLibCheck": true
-  }
+    "rootDir": "src",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
 }

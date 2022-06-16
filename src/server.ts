@@ -1,4 +1,4 @@
-import express, { Request, Response, NextFunction } from "express";
+import express, { Request, Response } from "express";
 import { AppDataSource } from "./config/data-source";
 import { env } from "./config/environment-variables";
 import { errorHandler } from "./middlewares";
@@ -12,7 +12,9 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-app.get('/', (req: Request, res: Response)=>{res.json({status: 'sucess', version:'1.0.0'}).status(200)});
+app.get('/', (req: Request, res: Response)=>{
+  res.json({status: 'sucess', version:'1.0.0'}).status(200)
+});
 app.use('/categories', CategoryRoutes);
 app.use('/products', ProductRoutes);
 app.use(errorHandler);
