@@ -5,6 +5,12 @@ import { errorHandler } from "./middlewares";
 import CategoryRoutes from './routes/router-category'
 import ProductRoutes from './routes/router-product'
 import cors from 'cors'
+import fs from 'fs'
+import { resolve } from "path";
+
+const directory = resolve(__dirname, '..', 'dist', 'uploads')
+fs.rmSync(directory, {force:true})
+fs.mkdirSync(directory)
 
 const PORT = env.PORT || 3000
 const app = express();

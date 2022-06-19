@@ -19,7 +19,8 @@ export class ProductService {
       const savedProduct = await this.productRepository.save(createProduct);
       return new CreatedProductDto(savedProduct);
     } catch (error) {
-      throw new HttpException('Houve um erro ao adicionar curso!', HttpStatus.BAD_REQUEST);
+   
+      throw new HttpException('Houve um erro ao adicionar produto!', HttpStatus.BAD_REQUEST);
     }
   }
   
@@ -77,7 +78,7 @@ export class ProductService {
       })
       if(!product) {
         throw new HttpException('Produto não encontrado!', HttpStatus.NOT_FOUND,)
-      }; 
+      }
       await this.productRepository.update(id, {...product, ...params})
     } catch (error) {
       if(error instanceof HttpException) throw error;

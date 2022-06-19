@@ -1,4 +1,5 @@
 import { Request, Response } from "express"
+import { resolve } from "path";
 import { Like } from "typeorm";
 import { CreatedProductDto } from '../dtos/product/created-product.dto';
 import { ProductService } from '../services/product.service';
@@ -37,4 +38,12 @@ export class ProductController {
     const product = await this.productService.delete(params.id);
     return res.status(HttpStatus.NO_CONTENT).json(product);
   }
+  
+  async getImageByName(
+    {params}: Request, res: Response
+  ): Promise<any>{
+    const directory = resolve(__dirname, '..', 'uploads')
+    return res.status(HttpStatus.OK).sendFile(`${directory}/${params.name}`)
+  }
 }
+

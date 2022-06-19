@@ -48,4 +48,11 @@ router.delete('/delete/:id', (req: Request, res: Response, next: NextFunction)=>
   });
 })
 
+router.get('/img/:name', (req: Request, res: Response, next: NextFunction)=> {
+  productController.getImageByName(req, res).catch((error:Error)=> {
+    next(error)
+    })
+  }
+)
+
 export default router
