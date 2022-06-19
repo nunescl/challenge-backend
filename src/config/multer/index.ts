@@ -6,7 +6,7 @@ import { HttpException } from '../../handler-exceptions/http-exception.provider'
 import { HttpStatus } from '../../utils/enums/http-status.enum';
 import { env } from '../environment-variables';
 
-const directory = resolve(__dirname, '..', 'dist', 'uploads')
+const directory = resolve(__dirname, '..', '..', 'dist', 'uploads')
 const storageTypes: Record<string, StorageEngine> = {
   local: diskStorage({
     destination: (_req: Request, _file: Express.Multer.File, cb: any) => {
