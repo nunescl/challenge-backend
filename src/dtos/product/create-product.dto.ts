@@ -6,7 +6,7 @@ export class CreateProductDto extends RequestDto {
   description!: string;
   englishDescription!: string;
   image!: string;
-  value!: number;
+  price!: number;
   personCount!: number;
   disponibility!: boolean;
   lacFree!: boolean;
@@ -36,8 +36,8 @@ export class CreateProductDto extends RequestDto {
         .not()
         .isEmpty({ ignore_whitespace: true }),
 
-      body('value', 'Valor value não é um número!').isNumeric(),
-      body('value', 'O campo value é obrigatório!')
+      body('price', 'Valor price não é um número!').isNumeric(),
+      body('price', 'O campo price é obrigatório!')
         .not()
         .isEmpty({ ignore_whitespace: true }),
         

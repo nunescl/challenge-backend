@@ -16,7 +16,7 @@ export class ProductEntity {
   englishDescription!: string;
 
   @Column({ type: 'float', nullable: false })
-  value!: number;
+  price!: number;
 
   @Column({ type: 'int', nullable: false })
   personCount!: number;

@@ -13,7 +13,7 @@ export class CreatedProductDto extends CreateProductDto {
     name, 
     description, 
     englishDescription, 
-    value,
+    price,
     personCount,
     image,
     disponibility,
@@ -29,7 +29,7 @@ export class CreatedProductDto extends CreateProductDto {
     this.name = name;
     this.description = description;
     this.englishDescription = englishDescription;
-    this.value = value;
+    this.price = price;
     this.personCount = personCount;
     this.image = image;
     this.disponibility = disponibility;

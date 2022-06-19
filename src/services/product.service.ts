@@ -13,9 +13,9 @@ export class ProductService {
     this.productRepository = this.connection.getRepository(ProductEntity);
   }
 
-  async create({name, description, englishDescription, image, value, personCount, disponibility, lacFree, glutenFree, veg, categoryId}: CreateProductDto): Promise<CreatedProductDto> {
+  async create({name, description, englishDescription, image, price, personCount, disponibility, lacFree, glutenFree, veg, categoryId}: CreateProductDto): Promise<CreatedProductDto> {
     try {
-      const createProduct = this.productRepository.create({category:{id:categoryId}, name, description, englishDescription, image, value, personCount, disponibility, lacFree, glutenFree, veg});
+      const createProduct = this.productRepository.create({category:{id:categoryId}, name, description, englishDescription, image, price, personCount, disponibility, lacFree, glutenFree, veg});
       const savedProduct = await this.productRepository.save(createProduct);
       return new CreatedProductDto(savedProduct);
     } catch (error) {

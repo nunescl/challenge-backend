@@ -6,7 +6,7 @@ export class UpdateProductDto extends RequestDto {
   description?: string;
   englishDescription?: string;
   image?: string;
-  value?: number;
+  price?: number;
   personCount?: number;
   disponibility?: boolean;
   lacFree?: boolean;
