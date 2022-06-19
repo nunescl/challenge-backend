@@ -8,7 +8,7 @@ import cors from 'cors'
 import fs from 'fs'
 import { resolve } from "path";
 
-const directory = resolve(__dirname, '..', 'uploads')
+const directory = resolve(__dirname, '..', 'dist', 'uploads')
 fs.rmSync(directory, {force:true})
 fs.mkdirSync(directory)
 
