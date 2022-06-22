@@ -29,14 +29,9 @@ export class ProductController {
     return res.status(HttpStatus.OK).json(product)
   }
 
-  async update({params, body, file}: Request, res: Response):
+  async update({params, body}: Request, res: Response):
   Promise<Response<UpdatedProductDto>>{
-    const product = await this.productService.update(params.id, {...body,
-      image:file?.filename,
-      disponibility: body.disponibility === "true" ? true : false,
-      lacFree: body.lacFree === "true" ? true : false,
-      glutenFree: body.glutenFree === "true" ? true : false,
-      veg: body.veg === "true" ? true : false,});
+    const product = await this.productService.update(params.id, {...body});
     return res.status(HttpStatus.NO_CONTENT).json(product);
   }
 
