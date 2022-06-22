@@ -33,7 +33,7 @@ export class ProductController {
   Promise<Response<UpdatedProductDto>>{
     const product = await this.productService.update(params.id, {...body,
       image:file?.filename,
-      disponibility: body?.disponibility,
+      disponibility: body.disponibility === "true" ? true : false,
       lacFree: body?.lacFree,
       glutenFree: body?.glutenFree,
       veg: body?.veg,
