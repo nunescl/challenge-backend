@@ -33,6 +33,11 @@ export class ProductController {
   Promise<Response<UpdatedProductDto>>{
     const product = await this.productService.update(params.id, {...body,
       image:file?.filename,
+      disponibility: body?.disponibility,
+      lacFree: body?.lacFree,
+      glutenFree: body?.glutenFree,
+      veg: body?.veg,
+
     });
     return res.status(HttpStatus.NO_CONTENT).json(product);
   }
