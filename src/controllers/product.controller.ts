@@ -1,7 +1,7 @@
 import { Request, Response } from "express"
 import { resolve } from "path";
-import { Like } from "typeorm";
 import { CreatedProductDto } from '../dtos/product/created-product.dto';
+import { UpdatedProductDto } from '../dtos/product/updated-product.dto';
 import { ProductService } from '../services/product.service';
 import { HttpStatus } from '../utils/enums/http-status.enum'
 
@@ -29,8 +29,14 @@ export class ProductController {
     return res.status(HttpStatus.OK).json(product)
   }
 
-  async update({params, body}: Request, res: Response){
-    const product = await this.productService.update(params.id, body);
+  async update({params, body}: Request, res: Response):
+  Promise<Response<UpdatedProductDto>>{
+    const product = await this.productService.update(params.id, {...body,
+      
+      disponibility: body.disponibility === "true" ? true : false,
+      lacFree: body.lacFree === "true" ? true : false,
+      glutenFree: body.glutenFree === "true" ? true : false,
+      veg: body.veg === "true" ? true : false,});
     return res.status(HttpStatus.NO_CONTENT).json(product);
   }
 

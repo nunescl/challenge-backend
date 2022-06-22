@@ -1,4 +1,4 @@
-import { body, ValidationChain } from 'express-validator';
+import {  ValidationChain } from 'express-validator';
 import { RequestDto } from '../request-dto/request.dto';
 
 export class UpdateProductDto extends RequestDto {
